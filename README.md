@@ -1,24 +1,31 @@
-# README
+# En Cuisine ! web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Une application web qui utilise l'API de recettes libres !
 
-Things you may want to cover:
+🧑🏻‍🍳 Voir la [feuille de route publique de En Cuisine !](https://github.com/orgs/encuisineorg/projects/1)
 
-* Ruby version
+🙏🏻 Merci de noter que nous avons un [code de conduite](https://github.com/encuisineorg/roadmap/blob/main/CODE_OF_CONDUCT.md), veuillez le suivre dans toutes vos interactions avec le projet.
 
-* System dependencies
+🧑🏻‍💻 Vous êtes un développeur, un designer UI/UX et vous voulez aider ? Lisez le [guide de contribution](https://github.com/encuisineorg/roadmap/blob/main/CONTRIBUTING.md).
 
-* Configuration
+## Getting started
 
-* Database creation
+### Requirements
 
-* Database initialization
+- Ruby 3.1.1 or higher
+- bundler - `gem install bundler`
+- PostgreSQL
 
-* How to run the test suite
+### Initial setup
 
-* Services (job queues, cache servers, search engines, etc.)
+1. Customize the `config/database.yml`
+2. Run `bin/setup`
+3. Create a `.env` file with `ENCUISINE_API_BASE_URL="http://localhost:3000"` if you're simultaneously [running the En Cuisine ! API](https://github.com/encuisineorg/encuisine-api#running-en-cuisine--api)
 
-* Deployment instructions
+### Running En Cuisine ! web
 
-* ...
+1. Run `bin/dev`
+
+### Run the test suite
+
+1. Run `rspec`
