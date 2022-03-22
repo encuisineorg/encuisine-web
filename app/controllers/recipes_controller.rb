@@ -35,6 +35,7 @@ class RecipesController < ApplicationController
       :license,
       :source_url,
       :title,
+      :total_minutes,
       ingredients_attributes: [
         :name,
         :quantity,

@@ -6,9 +6,16 @@
 
     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
       <div class="sm:col-span-6">
-        <%= form.label :title, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.label :title, "Titre", class: "block text-sm font-medium text-gray-700" %>
         <div class="mt-1">
           <%= form.text_field :title, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
+        </div>
+      </div>
+
+      <div class="sm:col-span-6">
+        <%= form.label :total_minutes, "Durée totale (en minutes)", class: "block text-sm font-medium text-gray-700" %>
+        <div class="mt-1">
+          <%= form.number_field :total_minutes, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
         </div>
       </div>
 
@@ -55,7 +62,6 @@
           </div>
         </div>
       </div>
-
 
       <div class="sm:col-span-6">
         <%= form.label :content, "Contenu", class: "block text-sm font-medium text-gray-700" %>
