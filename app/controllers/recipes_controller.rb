@@ -1,17 +1,17 @@
 class RecipesController < ApplicationController
   def show
-    response = connection.get("/api/v1/recipes/#{params[:id]}")
+    response = Encuisine::Recipe.get(params[:id])
     if response.status.eql?(200)
       @json = response.body
+    else
+      render status: 404
     end
   end
 
   def new; end
 
   def create
-    response = connection.post("/api/v1/recipes") do |request|
-      request.body = recipe_params.to_json
-    end
+    response = Encuisine::Recipe.create(recipe_params.to_json)
     if response.status.eql?(200)
       redirect_to recipe_path(response.body["id"]), notice: "Merci d'avoir contribué !"
     else
@@ -20,13 +20,6 @@ class RecipesController < ApplicationController
   end
 
   private
-
-  def connection
-    Faraday.new(ENV["ENCUISINE_API_BASE_URL"]) do |faraday|
-      faraday.request :json
-      faraday.response :json
-    end
-  end
 
   def recipe_params
     params.require(:recipe).permit(

@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 gem "dotenv-rails", groups: [:development, :test] # Shim to load environment variables from .env [https://github.com/bkeepers/dotenv]
 gem "bootsnap", require: false # Reduces boot times through caching; required in config/boot.rb
+gem "encuisine"
 gem "faraday" # HTTP client library abstraction layer [https://github.com/lostisland/faraday]
 gem "importmap-rails" # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "jbuilder" # Build JSON APIs with ease [https://github.com/rails/jbuilder]
