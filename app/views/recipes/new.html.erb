@@ -1,100 +1,106 @@
-<%= form_with(url: recipes_path, scope: :recipe, html: { class: "w-full space-y-8 " }) do |form| %>
-  <div>
+<div class="hero bg-base-200">
+  <div class="hero-content text-center">
     <div>
-      <h3 class="text-lg leading-6 font-medium text-gray-900">Nouvelle recette</h3>
+      <h1 class="text-5xl font-bold">📝🍳 Partagez vos recettes éco-responsables et inspirez notre communauté ! 🌿🌎</h1>
+      <p class="py-6">Vous avez une recette délicieuse 😋 et éco-responsable 🌿 que vous aimeriez partager avec notre communauté "En Cuisine !" ? Utilisez ce formulaire pour soumettre vos meilleures créations culinaires et participez activement à la promotion d'une alimentation durable et respectueuse de l'environnement 🌍.</p>
     </div>
+  </div>
+</div>
 
-    <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-      <div class="sm:col-span-6">
-        <%= form.label :title, "Titre", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.text_field :title, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-        </div>
-      </div>
+<%= form_with(url: recipes_path, scope: :recipe, html: { class: "w-full space-y-2" }) do |form| %>
+  <div>
+    <h2 class="text-3xl font-bold">Nouvelle recette</h2>
+  </div>
 
-      <div class="sm:col-span-6">
-        <%= form.label :total_minutes, "Durée totale (en minutes)", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.number_field :total_minutes, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-        </div>
-      </div>
+  <div class="form-control">
+    <%= form.label :title, "Titre", class: "label" %>
+    <%= form.text_field :title, class: "input" %>
+  </div>
 
-      <div class="sm:col-span-6">
-        <div data-controller="ingredients">
-          <template data-ingredients-target="template">
-            <div class="fields mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
-              <div class="sm:col-span-3">
-                <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][name]", "Ingrédient", class: "block text-sm font-medium text-gray-700" %>
-                <div class="mt-1">
-                  <%= text_field_tag "recipe[ingredients_attributes][NEW_RECORD][name]", nil, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-                </div>
-              </div>
+  <div class="form-control">
+    <%= form.label :recipe_category, "Catégorie", class: "label" %>
+    <%= form.text_field :recipe_category, class: "input" %>
+  </div>
 
-              <div class="sm:col-span-1">
-                <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][quantity]", "Quantité", class: "block text-sm font-medium text-gray-700" %>
-                <div class="mt-1">
-                  <%= text_field_tag "recipe[ingredients_attributes][NEW_RECORD][quantity]", nil, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-                </div>
-              </div>
+  <div class="form-control">
+    <%= form.label :author, "Auteur", class: "label" %>
+    <%= form.text_field :author, class: "input" %>
+  </div>
 
-              <div class="sm:col-span-1">
-                <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][unit]", "Unité", class: "block text-sm font-medium text-gray-700" %>
-                <div class="mt-1">
-                  <%= text_field_tag "recipe[ingredients_attributes][NEW_RECORD][unit]", nil, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-                </div>
-              </div>
+  <div class="form-control">
+    <%= form.label :license, "Licence", class: "label" %>
+    <%= form.text_field :license, class: "input" %>
+  </div>
 
-              <div class="sm:col-span-1">
-                <label class="block text-sm font-medium">&nbsp;</label>
-                <div class="mt-1">
-                  <a href="#" data-action="click->ingredients#remove" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                    Supprimer l'ingrédient
-                  </a>
-                </div>
-              </div>
-            </div>
-          </template>
+  <div class="form-control">
+    <%= form.label :source_url, "URL source", class: "label" %>
+    <%= form.text_field :source_url, class: "input" %>
+  </div>
 
-          <div data-ingredients-target="links" class="mt-6">
-            <a href="#" data-action="click->ingredients#add" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-              Ajouter un ingrédient
+  <div class="form-control">
+    <%= form.label :prep_time_in_minutes, "Temps de préparation (en minutes)", class: "label" %>
+    <%= form.number_field :prep_time_in_minutes, class: "input" %>
+  </div>
+
+  <div class="form-control">
+    <%= form.label :cook_time_in_minutes, "Temps de cuisson (en minutes)", class: "label" %>
+    <%= form.number_field :cook_time_in_minutes, class: "input" %>
+  </div>
+
+  <div class="form-control">
+    <%= form.label :total_minutes, "Durée totale (en minutes)", class: "label" %>
+    <%= form.number_field :total_minutes, class: "input" %>
+  </div>
+
+  <div class="form-control">
+    <%= form.label :recipe_yield, "Nombre de couverts", class: "label" %>
+    <%= form.number_field :recipe_yield, class: "input" %>
+  </div>
+
+  <div class="sm:col-span-6">
+    <div data-controller="ingredients" class="space-y-6">
+      <p>Ingrédients</p>
+
+      <template data-ingredients-target="template">
+        <div class="fields mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+          <div class="sm:col-span-3 form-control">
+            <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][name]", "Ingrédient", class: "label" %>
+            <%= text_field_tag "recipe[ingredients_attributes][NEW_RECORD][name]", nil, class: "input w-full" %>
+          </div>
+
+          <div class="sm:col-span-1 form-control">
+            <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][quantity]", "Quantité", class: "label" %>
+            <%= number_field_tag "recipe[ingredients_attributes][NEW_RECORD][quantity]", nil, class: "input w-full" %>
+          </div>
+
+          <div class="sm:col-span-1 form-control">
+            <%= label_tag "recipe[ingredients_attributes][NEW_RECORD][unit]", "Unité", class: "label" %>
+            <%= text_field_tag "recipe[ingredients_attributes][NEW_RECORD][unit]", nil, class: "input" %>
+          </div>
+
+          <div class="sm:col-span-1 form-control">
+            <label class="label">&nbsp;</label>
+            <a href="#" data-action="click->ingredients#remove" class="input btn">
+              Supprimer
             </a>
           </div>
         </div>
-      </div>
+      </template>
 
-      <div class="sm:col-span-6">
-        <%= form.label :content, "Contenu", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.text_area :content, rows: 5, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md" %>
-        </div>
-      </div>
-
-      <div class="sm:col-span-6">
-        <%= form.label :author, "Auteur", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.text_field :author, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-        </div>
-      </div>
-
-      <div class="sm:col-span-6">
-        <%= form.label :license, "Licence", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.text_field :license, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-        </div>
-      </div>
-
-      <div class="sm:col-span-6">
-        <%= form.label :source_url, "URL source", class: "block text-sm font-medium text-gray-700" %>
-        <div class="mt-1">
-          <%= form.text_field :source_url, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md" %>
-        </div>
-      </div>
-
-      <div class="sm:col-span-6">
-        <%= form.submit "Enregistrer la recette", class: "cursor-pointer inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+      <div data-ingredients-target="links" class="form-control">
+        <a href="#" data-action="click->ingredients#add" class="input btn">
+          Ajouter un ingrédient
+        </a>
       </div>
     </div>
   </div>
-<% end %>
 
+  <div class="form-control">
+    <%= form.label :content, "Contenu", class: "label" %>
+    <%= form.text_area :content, rows: 5, class: "textarea" %>
+  </div>
+
+  <div class="form-control">
+    <%= form.submit "Enregistrer la recette", class: "btn" %>
+  </div>
+<% end %>

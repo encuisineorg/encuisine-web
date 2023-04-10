@@ -1,5 +1,43 @@
-<div class="mt-5">
-  <pre>
-    <%= @json %>
-  </pre>
+<div itemscope itemtype="http://schema.org/Recipe" class="space-y-4">
+  <h1 itemprop="name" class="text-5xl font-bold text-center"><%= @recipe["title"] %></h1>
+
+  <% if @recipe["author"].present? %>
+    <p>par <span itemprop="author"><%= @recipe["author"] %></span></p>
+  <% end %>
+
+  <% if @recipe["license"].present? %>
+    <p>sous licence <%= @recipe["license"] %></p>
+  <% end %>
+
+  <% if @recipe["recipe_category"].present? %>
+    <p itemprop="recipeCategory"><%= @recipe["recipe_category"] %></p>
+  <% end %>
+
+  <% if @recipe["recipe_yield"].present? %>
+    <p itemprop="recipeYield">Pour <%= @recipe["recipe_yield"] %> personnes</p>
+  <% end %>
+
+  <% if @recipe["prep_time_in_minutes"].present? %>
+    <p itemprop="prepTime" content="PT<%= @recipe["prep_time_in_minutes"] %>M"><%= @recipe["prep_time_in_minutes"] %> minutes de préparation</p>
+  <% end %>
+
+  <% if @recipe["cook_time_in_minutes"].present? %>
+    <p itemprop="cookTime" content="PT<%= @recipe["cook_time_in_minutes"] %>M"><%= @recipe["cook_time_in_minutes"] %> minutes de cuisson</p>
+  <% end %>
+
+  <h2>Liste des ingrédients :</h2>
+  <ul itemprop="recipeIngredient">
+    <% @recipe["ingredients"].each do |ingredient| %>
+      <li>
+        <%= ingredient["quantity"] %>
+        <%= ingredient["unit"] %>
+        <%= ingredient["name"] %>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2>Étapes de la recette :</h2>
+  <div itemprop="recipeInstructions">
+    <%= simple_format @recipe["content"] %>
+  </div>
 </div>

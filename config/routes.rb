@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  root to: redirect("/recipes/new")
-  resources :recipes, only: [:show, :new, :create]
+  root to: redirect("/recipes")
+  resources :recipes, only: [:index, :show, :new, :create]
 end

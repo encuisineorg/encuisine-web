@@ -1,8 +1,17 @@
 class RecipesController < ApplicationController
+  def index
+    response = Encuisine::Recipe.all
+    if response.status.eql?(200)
+      @recipes = response.body
+    else
+      render status: 404
+    end
+  end
+
   def show
     response = Encuisine::Recipe.get(params[:id])
     if response.status.eql?(200)
-      @json = response.body
+      @recipe = response.body
     else
       render status: 404
     end
@@ -25,7 +34,11 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(
       :author,
       :content,
+      :cook_time_in_minutes,
       :license,
+      :prep_time_in_minutes,
+      :recipe_category,
+      :recipe_yield,
       :source_url,
       :title,
       :total_minutes,

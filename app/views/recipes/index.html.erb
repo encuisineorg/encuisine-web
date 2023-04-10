@@ -1,0 +1,35 @@
+<div class="hero bg-base-200">
+  <div class="hero-content text-center">
+    <div>
+      <h1 class="text-5xl font-bold">🥗👩‍🍳 Recettes communautaires : savoureuses et éco-responsables 🌍🍽️</h1>
+      <p class="py-6">Explorez notre sélection de recettes publiques 📖, partagées avec amour ❤️ par la communauté "En Cuisine !".</p>
+      <p class="py-6">Rejoignez notre communauté de cuisiniers éco-responsables 🌿 et partagez vos propres recettes préférées pour inspirer et encourager les autres à adopter une alimentation plus durable et respectueuse de notre planète 🌎. Ensemble, nous pouvons faire la différence, un plat à la fois ! 🌱👩‍🍳</p>
+      <%= link_to "Ajouter une recette", new_recipe_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+
+<div class="w-full space-y-8">
+  <table class="table w-full">
+    <thead>
+      <th>Recette</th>
+      <th>Catégorie</th>
+      <th>Auteur</th>
+      <th>Licence</th>
+      <th>Temps de préparation (en minutes)</th>
+      <th>Temps de cuisson (en minutes)</th>
+    </thead>
+    <tbody>
+      <% @recipes.each do |recipe| %>
+        <tr>
+          <td><%= link_to recipe["title"], recipe_path(recipe["id"]) %></td>
+          <td><%= recipe["recipe_category"] %></td>
+          <td><%= recipe["author"] %></td>
+          <td><%= recipe["license"] %></td>
+          <td><%= recipe["prep_time_in_minutes"] %></td>
+          <td><%= recipe["cook_time_in_minutes"] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

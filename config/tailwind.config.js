@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
+  darkMode: 'class',
   content: [
     './app/helpers/**/*.rb',
     './app/javascript/**/*.js',
@@ -17,5 +18,16 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
-  ]
+    require("daisyui"),
+  ],
+  daisyui: {
+    styled: true,
+    themes: ["coffee"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "coffee",
+  }
 }
