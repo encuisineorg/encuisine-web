@@ -1,1 +1,2 @@
-https://github.com/heroku/heroku-buildpack-ruby.git
+https://github.com/dilolabs/buildpack-nodejs.git
+https://github.com/dilolabs/buildpack-ruby.git
