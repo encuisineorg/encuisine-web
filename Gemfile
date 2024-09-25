@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
+ruby "3.3.5"
 
 gem "dotenv-rails", groups: [:development, :test] # Shim to load environment variables from .env [https://github.com/bkeepers/dotenv]
 gem "bootsnap", require: false # Reduces boot times through caching; required in config/boot.rb
@@ -38,6 +38,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # En Cuisine dependencies
+  gem "bundler-audit"
 end
 
 group :test do
