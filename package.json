@@ -2,5 +2,8 @@
   "dependencies": {
     "@hotwired/turbo-rails": "^7.3.0",
     "daisyui": "^2.51.5"
+  },
+  "devDependencies": {
+    "yarn-audit-fix": "^10.0.9"
   }
 }
